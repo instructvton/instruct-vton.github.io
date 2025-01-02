@@ -1,2 +1,2 @@
-# instruct-vton
-Code for Instruct-VTON paper
+# deftvton.github.io
+Project page for the DEFT-VTON paper

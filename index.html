@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="InstructVTON: Optimal Auto-Masking and Natural-Language-Guided Interactive Style Control for Inpainting-Based Virtual Try-On">
+  <meta name="keywords" content="Virtual try-on, Multi-garment try-on, Auto-Masking, Image segmentation, Agent">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3YHT6M18Z2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3YHT6M18Z2');
+</script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Virtual Try-On Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://qi-studio.github.io/DiT-VTON/">
+              DiT-VTON: Diffusion Transformer Virtual Try On
+            </a>
+            <a class="navbar-item" href="https://pose-vton.github.io/vto-pose-conditioning/">
+              Is concatenation really all you need for pose-conditioning and pose control (Upcoming)
+            </a>
+            <a class="navbar-item" href="https://deft-vton.github.io/">
+              Efficient Virtual Try-On with Consistent Generalised H-Transform
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">InstructVTON: Optimal Auto-Masking and Natural-Language-Guided Interactive Style Control for Inpainting-Based Virtual Try-On</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/mh1795">Julien Han</a>,
+            </span>
+
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/shuwen-qiu-420321202">Shuwen Qiu</a><sup><span>&#9827;</span></sup>
+            </span>,<!--br-->
+
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/qi-li-5575a65b">Qi Li</a>,
+            </span>
+
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/xingzi-xu-7b584016a">Xingzi Xu</a><sup><span>&#9824;</span></sup>,
+            </span>
+
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/kavosh-asadi-029a1780">Kavosh Asadi</a>,
+            </span>
+
+            <span class="author-block">
+              <a href="https://www.amazon.science/author/amir-tavanaei">Amir Tavanaei</a>,
+            </span>
+
+            <span class="author-block">
+              <a href="https://www.amazon.science/author/karim-bouyarmane">Karim Bouyarmane</a>
+            </span>
+          </div>
+
+          <div class="is-size-4 publication-authors">
+            <span class="author-block new-line"><sup></sup>Amazon</span><br>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block new-line"><sup><span>&#9824;</span> </sup>Duke University, work done as an applied scientist intern at Amazon</span><br>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block new-line"><sup><span>&#9827;</span> </sup>UCLA, work done as an applied scientist intern at Amazon</span><br>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+
+              <span class="link-block">
+                <a href="https://instruct-vton.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>ArXiv</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://instruct-vton.github.io"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>PDF</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!--h2 class="title is-3">Results</h2-->
+        <div class="columns is-centered">
+          <!-- First Row -->
+          <div class="column">
+            <div class="content">
+              <figure>
+                <img src="./static/images/iterative-try-on.png" alt="iterative-try-on">
+                <figcaption>InstructVTON iteratively generate virtual try-on result with multiple garments.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present InstructVTON, an instruction-following interactive virtual try-on system that allows fine-grained and complex styling control of the resulting generation, guided by natural language, on single or multiple garments. A computationally efficient and scalable formulation of virtual try-on formulates the problem as an image-guided or image-conditoned inpainting task. These inpainting-based virtual try-on models commonly use a binary mask to control the generation layout. Producing a mask that yields desirable result is difficult, requires background knowledge, might be model dependent, and in some cases impossible with the masking-based approach (e.g. trying on a long-sleeve shirt with “sleeves rolled up” styling on a person wearing long-sleeve shirt with sleeves down, where the mask will necessarily cover the entire sleeve). InstructVTON leverages Vision Language Models (VLMs) and image segmentation models for automated binary mask generation. These masks are generated based on user-provided images and free-text style instructions. InstructVTON simplifies the end-user experience by removing the necessity of a precisely drawn mask, and by automating execution of multiple rounds of image generation for try-on scenarios that cannot be achieved with masking-based virtual try-on models alone. We show that InstructVTON is interoperable with existing virtual try-on models to achieve state-of-the-art results with styling control. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- <div class="columns is-centered has-text-centered"> -->
+      <!-- <div class="column is-four-fifths"> -->
+        <!--h2 class="title is-3">Results</h2-->
+        <div class="columns is-centered">
+          <!-- First Row -->
+          <div class="column">
+            <div class="content">
+              <figure>
+                <img src="./static/images/instruct-vton.png" alt="instruct-vton">
+                <figcaption>InstructVTON architecutre.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            InstructVTON uses a Top Level Agent to plan the try-on order for input garments. For each input garment, AutoMasker determines the optimal masking area in the human model image based on the try-on garment image and user-provided style instruction. Inpainting VTO generates the try-on result, which is used as the human model image to try on the next garment.
+          </p>
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- <div class="columns is-centered has-text-centered"> -->
+      <!-- <div class="column is-four-fifths"> -->
+        <!--h2 class="title is-3">Results</h2-->
+        <div class="columns is-centered">
+          <!-- First Row -->
+          <div class="column">
+            <div class="content">
+              <figure>
+                <img src="./static/images/dummy-garment-step.png" alt="dummy-garment-step">
+                <figcaption>InstructVTON intelligently use dummy garment to satisfy hard-to-achieve style instruction.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            When presented with style instruction that is hard to achieve with single execution of Inpainting VTO, such as "sleeves rolled-up" while target garment is a long-sleeve shirt and human model image is also wearing a long-sleeve shirt, InstructVTON intelligently adopts a 2-step approach, first it generates an intermediate try-on image with a dummy garment with short sleeves, then generates the final try-on result with the target garment.
+          </p>
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- <div class="columns is-centered has-text-centered"> -->
+      <!-- <div class="column is-four-fifths"> -->
+        <!--h2 class="title is-3">Results</h2-->
+        <div class="columns is-centered">
+          <!-- First Row -->
+          <div class="column">
+            <div class="content">
+              <figure>
+                <img src="./static/images/automasker.png" alt="automasker">
+                <figcaption>AutoMasker uses VLM to determine optimal masking area.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            AutoMasker obtains body and clothing segmentation maps of the human model image, it then uses a VLM to choose necessary segementations that can satisfy the user-provided style instruction while minimizing the masked area and thus maximize the preservation of the original human model image.
+          </p>
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <p>If you find our work useful, please cite our paper:</p>
+    <pre><code>@misc{Instruct-VTON,
+      author = {Julien Han, Shuwen Qiu, Qi Li, Xingzi Xu, Kavosh Asadi, Amir Tavanaei, Karim Bouyarmane},
+      title = {InstructVTON: Optimal Auto-Masking and Natural-Language-Guided Interactive Style Control for Inpainting-Based Virtual Try-On},
+      publisher = {ArXiv},
+      year = {2024},
+      primaryClass={cs.CL}
+}</code></pre>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> and <a href="https://textual-inversion.github.io/"> Textual Inversion</a>  project pages. If you want to reuse it, please credit them appropriately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

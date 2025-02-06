@@ -162,7 +162,28 @@
           <div class="column">
             <div class="content">
               <figure>
-                <img src="./static/images/iterative-try-on.png" alt="iterative-try-on">
+                <img src="./static/images/masks_exaples.gif" alt="optimal_mask">
+                <figcaption>Automasker of InstructVTON generates optimal mask for Virtual try-on task.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!--h2 class="title is-3">Results</h2-->
+        <div class="columns is-centered">
+          <!-- First Row -->
+          <div class="column">
+            <div class="content">
+              <figure>
+                <img src="./static/images/instructVTON.gif" alt="instructvton">
                 <figcaption>InstructVTON iteratively generates virtual try-on result with multiple garments.</figcaption>
               </figure>
             </div>
@@ -198,15 +219,15 @@
           <div class="column">
             <div class="content">
               <figure>
-                <img src="./static/images/instruct-vton.png" alt="instruct-vton">
-                <figcaption>InstructVTON architecutre.</figcaption>
+                <img src="./static/images/automasker.png" alt="automasker">
+                <figcaption>AutoMasker uses VLM to determine optimal masking area.</figcaption>
               </figure>
             </div>
           </div>
         </div>
         <div class="content has-text-justified">
           <p>
-            InstructVTON uses a Top Level Agent to plan the try-on order for input garments. For each input garment, AutoMasker determines the optimal masking area in the human model image based on the try-on garment image and user-provided style instruction. Inpainting VTO generates the try-on result, which is used as the human model image to try on the next garment.
+            AutoMasker of InstructVTON obtains body and clothing segmentation maps of the human model image, it then uses a VLM to choose necessary segementations that can satisfy the user-provided style instruction while minimizing the masked area and thus maximize the preservation of the original human model image.
           </p>
         </div>
       <!-- </div> -->
@@ -233,32 +254,6 @@
         <div class="content has-text-justified">
           <p>
             When presented with style instruction that is hard to achieve with single execution of Inpainting VTO, such as "sleeves rolled-up" while target garment is a long-sleeve shirt and human model image is also wearing a long-sleeve shirt, InstructVTON intelligently adopts a 2-step approach, first it generates an intermediate try-on image with a dummy garment with short sleeves, then generates the final try-on result with the target garment.
-          </p>
-        </div>
-      <!-- </div> -->
-    <!-- </div> -->
-  </div>
-</section>
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- <div class="columns is-centered has-text-centered"> -->
-      <!-- <div class="column is-four-fifths"> -->
-        <!--h2 class="title is-3">Results</h2-->
-        <div class="columns is-centered">
-          <!-- First Row -->
-          <div class="column">
-            <div class="content">
-              <figure>
-                <img src="./static/images/automasker.png" alt="automasker">
-                <figcaption>AutoMasker uses VLM to determine optimal masking area.</figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-        <div class="content has-text-justified">
-          <p>
-            AutoMasker obtains body and clothing segmentation maps of the human model image, it then uses a VLM to choose necessary segementations that can satisfy the user-provided style instruction while minimizing the masked area and thus maximize the preservation of the original human model image.
           </p>
         </div>
       <!-- </div> -->
